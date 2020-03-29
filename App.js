@@ -5,10 +5,13 @@ import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import { Provider } from 'react-redux';
+import EntryPage from './screens/EntryPage.js'
+import GetGrocery from './screens/GetGroceryLogin.js'
+import RecieveGrocery from './screens/RecieveGroceryLogin.js'
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
-
+import store from './store'
 const Stack = createStackNavigator();
 
 export default function App(props) {
@@ -47,11 +50,15 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
-          <Stack.Navigator>
-            <Stack.Screen name="Root" component={BottomTabNavigator} />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <Provider store={store}>
+          <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
+            <Stack.Navigator>
+              <Stack.Screen name="Root" component={EntryPage} />
+              <Stack.Screen name="GetLogin" component={GetGrocery} />
+              <Stack.Screen name="RecieveLogin" component={RecieveGrocery} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </Provider>
       </View>
     );
   }
