@@ -8,6 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from 'react-redux';
 import EntryPage from './screens/EntryPage.js'
 import GetGrocery from './screens/GetGroceryLogin.js'
+import SelectStore from './screens/SelectStore.js'
 import RecieveGrocery from './screens/RecieveGroceryLogin.js'
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
@@ -53,8 +54,9 @@ export default function App(props) {
         <Provider store={store}>
           <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
             <Stack.Navigator>
-              <Stack.Screen name="Root" component={EntryPage} />
+              <Stack.Screen name="Root" component={SelectStore} />
               <Stack.Screen name="GetLogin" component={GetGrocery} />
+              <Stack.Screen name="SelectStore" component={SelectStore} />
               <Stack.Screen name="RecieveLogin" component={RecieveGrocery} />
             </Stack.Navigator>
           </NavigationContainer>

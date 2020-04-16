@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
+import { Image, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View, Button } from 'react-native';
 import { Input } from 'react-native-elements';
 import { connect } from "react-redux";
 import {registerUser} from '../actions/registrationactions'
+import SelectStore from './SelectStore'
 
 
 
@@ -17,15 +18,18 @@ function GetGrocery({navigation}) {
 
   const submitValue = () => {
      const frmdetails = {
-         'First Name' : fName,
-         'Last Name' : lName,
-         'Phone' : phone,
-         'Email' : email,
-         'Password': password,
-         'Distance': distance
+         'FirstName' : 'Varun',
+         'LastName' : 'Khurana',
+         'Phone' : 7328909274,
+         'Email' : 'varun99@gmail.com',
+         'Password': 'piniata',
+         'Distance': 4
      }
-     registerUser(); 
+     /* connect to redux mapstatetoprops */
+     registerUser(frmdetails);
+     navigation.navigate('SelectStore')
   }
+
 
   return (
     <View style={styles.container}>
@@ -36,7 +40,7 @@ function GetGrocery({navigation}) {
         <Input type="text" placeholder="Email" onChange={e => setEmail(e.target.value)} />
         <Input type="text" placeholder="Password" onChange={e => setPassword(e.target.value)} />
         <Input type="text" placeholder="Max Distance Your Willing To Travel " onChange={e => setDistance(e.target.value)} />
-        <Button title="Submit" onClick={submitValue()} />
+        <Button title="Submit" onPress = {submitValue} />
       </View>
     </View>
   )

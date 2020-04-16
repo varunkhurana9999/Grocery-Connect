@@ -1,1 +1,1 @@
-EXPORT const GETUERSER = "GETUSER"
+export const GRABPLACES = "GRABPLACES"
