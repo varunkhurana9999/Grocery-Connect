@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getGroceryPlaces, savePrimaryGroceryLocation }  from '../actions/mapActions'
 import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
+import AddItems from './AddItems'
 
 
 
@@ -39,9 +40,10 @@ function SelectStore({navigation, props}) {
   const handleSubmit = useCallback(() => {
     const groceryProvider = {
       name: 'Trader Joes',
-      address: '3 Masonic Avenue, San Francisco'
+      address: '4 Masonic Avenue, San Francisco'
     }
     savePrimaryGroceryLocation(groceryProvider)
+    navigation.navigate('AddItems')
   })
 
 

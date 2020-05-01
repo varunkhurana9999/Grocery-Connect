@@ -21,7 +21,7 @@ function GetGrocery({navigation}) {
          'FirstName' : 'Varun',
          'LastName' : 'Khurana',
          'Phone' : 7328909274,
-         'Email' : 'varun99@gmail.com',
+         'Email' : 'varun107@gmail.com',
          'Password': 'piniata',
          'Distance': 4
      }

@@ -11,6 +11,7 @@ import GetGrocery from './screens/GetGroceryLogin.js'
 import SelectStore from './screens/SelectStore.js'
 import RecieveGrocery from './screens/RecieveGroceryLogin.js'
 import BottomTabNavigator from './navigation/BottomTabNavigator';
+import AddItems from './screens/AddItems.js'
 import useLinking from './navigation/useLinking';
 import store from './store'
 const Stack = createStackNavigator();
@@ -52,14 +53,15 @@ export default function App(props) {
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
         <Provider store={store}>
-          <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
-            <Stack.Navigator>
-              <Stack.Screen name="Root" component={SelectStore} />
-              <Stack.Screen name="GetLogin" component={GetGrocery} />
-              <Stack.Screen name="SelectStore" component={SelectStore} />
-              <Stack.Screen name="RecieveLogin" component={RecieveGrocery} />
-            </Stack.Navigator>
-          </NavigationContainer>
+            <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
+              <Stack.Navigator>
+                <Stack.Screen name="Root" component={AddItems} />
+                <Stack.Screen name="GetLogin" component={GetGrocery} />
+                <Stack.Screen name="SelectStore" component={SelectStore} />
+                <Stack.Screen name="RecieveLogin" component={RecieveGrocery} />
+                <Stack.Screen name="AddItems" component={AddItems} />
+              </Stack.Navigator>
+            </NavigationContainer>
         </Provider>
       </View>
     );
